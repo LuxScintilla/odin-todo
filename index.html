@@ -24,13 +24,43 @@
         </div>
       </header>
       <nav class="nav-wrapper">
-        <a href="#" class="nav-button tasks-button">Tasks</a>
-        <a href="#" class="nav-button today-button">Today</a>
-        <a href="#" class="nav-button completed-button">Completed</a>
-        <a href="#" class="nav-button new-button">New</a>
+        <ul>
+          <li><a href="#" class="nav-button tasks-button">Tasks</a></li>
+          <li><a href="#" class="nav-button today-button">Today</a></li>
+          <li><a href="#" class="nav-button completed-button">Completed</a></li>
+          <li><a href="#" class="nav-button new-button">New</a></li>
+        </ul>
       </nav>
-      <main class="main-wrapper">main</main>
-      <footer class="footer-wrapper">footer</footer>
+      <main class="main-wrapper">
+        <div class="folder-wrapper">
+          <img class="folder-img" src="./src/img/folder.svg" />
+          <h2 class="folder-title">Folder Test</h2>
+          <p class="folder-info">
+            Open Tasks: <span class="info-amount">2</span>
+          </p>
+        </div>
+        <section class="task-list">
+          <div class="task-item">
+            <img class="task-img" src="./src/img/calendar-check.svg" />
+            <h3 class="task-title">Work on your Project</h3>
+            <p class="task-time">08:00 PM</p>
+            <p class="task-date">21 JUN 2023</p>
+            <img class="task-menu-img" src="./src/img/ellipsis-vertical.svg" />
+          </div>
+        </section>
+
+        <div class="folder-wrapper">
+          <img class="folder-img" src="./src/img/folder.svg" />
+          <h2 class="folder-title">Folder Another</h2>
+          <p class="folder-info">
+            Open Tasks: <span class="info-amount">6</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer-wrapper">
+        <p class="footer-text">The Odin Project</p>
+        <p class="footer-text">To Do List made by Ekaterina Furman</p>
+      </footer>
     </div>
   </body>
 </html>
