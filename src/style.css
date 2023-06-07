@@ -1,0 +1,129 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-clr: #e6d6ca;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 500px;
+  grid-template-rows: 250px 50px 500px 50px;
+  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  color: white;
+  background-image: url(./img/header-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  padding: 20px;
+}
+
+.header-left::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 333.33px;
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(to right, #cc00ff, #00c3ff, #00ffc8);
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+.welcome-greeting {
+  font-size: 1.2rem;
+  line-height: 0.6rem;
+  text-shadow: 1px 1px rgba(0, 0, 0, 1);
+}
+
+.welcome-name {
+  font-size: 2rem;
+  text-shadow: 1px 1px rgba(0, 0, 0, 1);
+}
+
+.header-date {
+  opacity: 50%;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.task-amount {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  color: black;
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  transition: 0.4s;
+}
+
+.tasks-button:hover {
+  background-color: #00c3ff;
+}
+
+.today-button:hover {
+  background-color: #cc00ff;
+}
+
+.completed-button:hover {
+  background-color: #00ffc8;
+}
+
+.new-button:hover {
+  background-color: chartreuse;
+}
+
+.main-wrapper {
+  background-color: aliceblue;
+}
+
+.footer-wrapper {
+  background-color: beige;
+}
