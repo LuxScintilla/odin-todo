@@ -124,12 +124,16 @@ body {
 }
 
 .nav-button {
+  width: 125px;
   display: block;
+  font-size: 1rem;
+  font-weight: bolder;
   text-align: center;
   line-height: 50px;
   text-decoration: none;
+  border: none;
   color: var(--text-main-clr);
-  font-weight: bolder;
+  background-color: transparent;
   transition: 0.3s;
 }
 
@@ -234,7 +238,14 @@ body {
 .task-menu-img {
   height: 15px;
   width: 15px;
+  border-radius: 50%;
   opacity: 0.5;
+  transition: 0.3s;
+}
+
+.task-menu-img:hover {
+  border-radius: 50%;
+  border: 1px solid var(--text-secondary-clr);
 }
 
 /* FOOTER STYLE ------------------------------------------------ */
