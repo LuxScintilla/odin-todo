@@ -16,6 +16,8 @@
   --light-blue: #c3f1ff;
   --light-teal: #cdfff4;
   --light-green: #cdffe2;
+  --new-task-bg: #584a85;
+  --dark-bg: #27203f;
 }
 
 body {
@@ -70,6 +72,10 @@ body {
 }
 
 .logo {
+  background-image: url(./img/lux-circle-dragon-white.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 50px;
   width: 50px;
 }
@@ -159,6 +165,101 @@ body {
   background-color: white;
   padding: 20px;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: linear-gradient(
+    to bottom,
+    var(--dark-bg),
+    var(--new-task-bg)
+  );
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--dark-bg);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-bg);
+}
+
+/* FOLDER STYLE ------------------------------------------------ */
+
+.new-task-title {
+  text-align: center;
+  font-weight: 100;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: var(--text-header-clr);
+}
+
+.new-task-img {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  height: 75px;
+  width: 75px;
+  background-image: url(./img/neon-todo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-header-clr);
+}
+
+.task-input {
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 2rem;
+  background-color: transparent;
+  color: var(--text-header-clr);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.task-input:focus,
+.task-info:focus {
+  border-bottom: 1px solid var(--teal);
+}
+
+.task-info {
+  margin-bottom: 20px;
+  height: 4rem;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-header-clr);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.task-submit {
+  height: 50px;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--text-header-clr);
+  background-color: var(--dark-bg);
+  border: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.task-submit:hover {
+  box-shadow: 0px 0px 5px 0px var(--teal);
+  color: var(--teal);
 }
 
 /* FOLDER STYLE ------------------------------------------------ */
