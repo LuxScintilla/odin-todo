@@ -6,6 +6,28 @@ export default function loadNewPage() {
   createPage();
 }
 
+const tasksArray = [];
+
+function submitTask(e) {
+  e.preventDefault();
+  const newForm = document.querySelector(".new-form");
+  const fd = new FormData(newForm);
+  const obj = Object.fromEntries(fd);
+  obj.delete = function () {
+    console.log("delete function here");
+  };
+  tasksArray.push(obj);
+  clearInput();
+  console.log(tasksArray);
+}
+
+function clearInput() {
+  const allInputs = document.querySelectorAll("input");
+  allInputs.forEach((input) => (input.value = ""));
+  const textAreaInput = document.querySelector("textarea");
+  textAreaInput.value = "";
+}
+
 function createPage() {
   const newTaskTitle = document.createElement("h2");
   newTaskTitle.classList.add("new-task-title");
@@ -29,6 +51,7 @@ function createPage() {
   const titleInput = document.createElement("input");
   titleInput.classList.add("task-input");
   titleInput.setAttribute("name", "task-name");
+  titleInput.setAttribute("autocomplete", "off");
   newForm.appendChild(titleInput);
 
   const infoLabel = document.createElement("label");
@@ -54,9 +77,11 @@ function createPage() {
   dateInput.setAttribute("type", "date");
   newForm.appendChild(dateInput);
 
-  const taskSubmit = document.createElement("button");
-  taskSubmit.classList.add("task-submit");
-  taskSubmit.setAttribute("type", "submit");
-  taskSubmit.textContent = "Submit New Task";
-  newForm.appendChild(taskSubmit);
+  const submitButton = document.createElement("button");
+  submitButton.classList.add("task-submit");
+  submitButton.setAttribute("type", "submit");
+  submitButton.textContent = "Submit New Task";
+  newForm.appendChild(submitButton);
+
+  submitButton.addEventListener("click", submitTask);
 }
