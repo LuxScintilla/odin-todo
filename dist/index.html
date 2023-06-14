@@ -24,25 +24,29 @@
           <p class="task-text">Tasks</p>
         </div>
       </header>
-      <nav class="nav-wrapper">
-        <ul>
-          <li>
-            <button type="button" class="nav-button tasks-button">Tasks</button>
-          </li>
-          <li>
-            <button type="button" class="nav-button today-button">Today</button>
-          </li>
-          <li>
-            <button type="button" class="nav-button completed-button">
-              Completed
+      <main class="main-wrapper">
+        <div class="new-folder-div">
+          <form action="" id="new-folder-form">
+            <input
+              class="new-folder-input"
+              type="text"
+              placeholder="My New Folder Name"
+              aria-label="New Folder Input"
+            />
+            <button class="new-folder-submit" aria-label="Create New Folder">
+              Make New Folder
             </button>
-          </li>
-          <li>
-            <button type="button" class="nav-button new-button">New</button>
-          </li>
-        </ul>
-      </nav>
-      <main class="main-wrapper"></main>
+          </form>
+        </div>
+        <div class="folder-list-div">
+          <h2 class="folder-list-title">My Folders</h2>
+          <ul class="folder-list">
+            <li class="folder active-folder">Default Folder</li>
+            <li class="folder">Another Folder</li>
+            <li class="folder">Ma Look I Work</li>
+          </ul>
+        </div>
+      </main>
       <footer class="footer-wrapper">
         <p class="footer-text">The Odin Project</p>
         <p class="footer-text">To Do List made by Ekaterina Furman</p>

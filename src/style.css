@@ -30,8 +30,8 @@ body {
 
 .content-wrapper {
   display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 250px 50px 500px 50px;
+  grid-template-columns: 600px;
+  grid-template-rows: 250px 500px 50px;
   box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -60,7 +60,7 @@ body {
   content: "";
   position: absolute;
   height: 4px;
-  width: 333.33px;
+  width: 400px;
   bottom: 0px;
   left: 0px;
   background: linear-gradient(
@@ -92,7 +92,10 @@ body {
 }
 
 .header-date {
-  opacity: 50%;
+  padding: 4px;
+  color: var(--text-header-clr);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+  border-radius: 10px;
 }
 
 .header-right {
@@ -106,57 +109,6 @@ body {
 .task-amount {
   font-size: 2rem;
   font-weight: bolder;
-}
-
-/* NAV STYLE ------------------------------------------------ */
-
-.nav-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  color: var(--text-main-clr);
-}
-
-.nav-wrapper > ul {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  list-style-type: none;
-}
-
-.nav-wrapper > ul > li {
-  width: 100%;
-}
-
-.nav-button {
-  width: 125px;
-  display: block;
-  font-size: 1rem;
-  font-weight: bolder;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  border: none;
-  color: var(--text-main-clr);
-  background-color: transparent;
-  transition: 0.3s;
-}
-
-.tasks-button:hover {
-  background-color: var(--light-purple);
-}
-
-.today-button:hover {
-  background-color: var(--light-blue);
-}
-
-.completed-button:hover {
-  background-color: var(--light-teal);
-}
-
-.new-button:hover {
-  background-color: var(--light-green);
 }
 
 /* MAIN STYLE ------------------------------------------------ */
@@ -202,161 +154,60 @@ body {
   color: var(--text-main-clr);
 }
 
-/* NEW TASK FORM STYLE ------------------------------------------------ */
+/* CREATE NEW FOLDER STYLE ------------------------------------------------ */
 
-.new-task-title {
-  text-align: center;
-  font-weight: 100;
-  font-size: 1rem;
+.new-folder-div {
   margin-bottom: 20px;
-  color: var(--text-header-clr);
 }
 
-.new-task-img {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  height: 75px;
-  width: 75px;
-  background-image: url(./img/todo-logo.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.new-folder-div > form {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 10px;
 }
 
-.new-form {
-  display: flex;
-  flex-direction: column;
-  color: var(--text-header-clr);
-}
-
-.task-input {
-  margin-bottom: 20px;
-  padding: 10px;
-  height: 2rem;
-  background-color: transparent;
-  color: var(--text-header-clr);
+.new-folder-input {
   outline: none;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-left: 10px;
 }
 
-.task-input:focus,
-.task-info:focus {
-  border-bottom: 1px solid var(--teal);
-}
-
-.task-info {
-  margin-bottom: 20px;
-  height: 4rem;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: var(--text-header-clr);
-  outline: none;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.task-submit {
-  height: 50px;
-  width: 100%;
-  margin: 0 auto;
-  color: var(--text-header-clr);
+.new-folder-submit {
+  grid-column: 2;
   background-color: var(--dark-bg);
+  color: var(--text-header-clr);
   border: none;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  height: 2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   transition: 0.3s;
 }
 
-.task-submit:hover {
-  box-shadow: 0px 0px 5px 0px var(--teal);
+.new-folder-submit:hover {
   color: var(--teal);
+  box-shadow: 0px 0px 5px var(--teal);
 }
 
 /* FOLDER STYLE ------------------------------------------------ */
 
-.folder-wrapper {
-  display: grid;
-  grid-template-columns: 30px 2fr 1fr;
-  align-items: center;
-  gap: 20px;
-  padding: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  border-left: 4px solid var(--purple);
-  margin-bottom: 10px;
-  transition: 0.3s;
-}
-
-.folder-wrapper:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.folder-img {
-  height: 30px;
-  width: 30px;
-}
-
-.folder-title {
+.folder-list-title {
   font-size: 1rem;
-  font-weight: bolder;
+  margin-bottom: 20px;
 }
 
-.folder-info {
-  text-align: end;
-  color: var(--text-secondary-clr);
-}
-
-.info-amount {
-  font-weight: bolder;
-  color: var(--purple);
-}
-
-/* TASK STYLE ------------------------------------------------ */
-
-.task-item {
-  display: grid;
-  grid-template-columns: 30px 2fr 1fr 1fr 30px;
-  gap: 10px;
-  color: var(--text-secondary-clr);
-  align-items: center;
-  border-left: 4px solid var(--blue);
+.folder {
+  position: relative;
+  list-style-type: none;
+  padding: 10px;
+  margin-left: 20px;
   margin-bottom: 10px;
-  margin-left: 25px;
-  transition: 0.3s;
+  cursor: pointer;
 }
 
-.task-item:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.folder:hover {
+  background: linear-gradient(to right, #dfdfdf, white);
 }
 
-.task-img {
-  height: 30px;
-  width: 30px;
-  opacity: 0.5;
-}
-
-.task-title {
-  font-size: 0.8rem;
-}
-
-.task-time {
-  font-size: 0.8rem;
-}
-
-.task-date {
-  font-size: 0.8rem;
-}
-
-.task-menu-img {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  opacity: 0.5;
-  transition: 0.3s;
-}
-
-.task-menu-img:hover {
-  border-radius: 50%;
-  border: 1px solid var(--text-secondary-clr);
+.active-folder {
+  background: linear-gradient(to right, var(--light-teal), white);
 }
 
 /* FOOTER STYLE ------------------------------------------------ */
