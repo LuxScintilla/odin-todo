@@ -12,7 +12,7 @@
   --purple: #cc00ff;
   --blue: #00c3ff;
   --teal: #00ffc8;
-  --light-purple: #f6d3ff;
+  --light-purple: #f9e3ff;
   --light-blue: #c3f1ff;
   --light-teal: #cdfff4;
   --light-green: #cdffe2;
@@ -168,7 +168,13 @@ body {
 
 .new-folder-input {
   outline: none;
+  border: 1px solid var(--dark-bg);
   padding-left: 10px;
+}
+
+.new-folder-input:focus {
+  background-color: var(--light-purple);
+  border: 1px solid var(--dark-bg);
 }
 
 .new-folder-submit {
@@ -194,8 +200,11 @@ body {
 }
 
 .folder {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
   list-style-type: none;
+  border-left: 4px solid #dfdfdf;
+  background: linear-gradient(to right, #efefef, white);
   padding: 10px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -203,11 +212,28 @@ body {
 }
 
 .folder:hover {
+  border-left: 4px solid #cfcfcf;
   background: linear-gradient(to right, #dfdfdf, white);
 }
 
 .active-folder {
+  font-weight: bolder;
+  border-left: 4px solid var(--teal);
   background: linear-gradient(to right, var(--light-teal), white);
+}
+
+.delete-folder {
+  background-image: url(./img/trash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  transition: 0.2s;
+}
+
+.delete-folder:hover {
+  transform: scale(1.2);
 }
 
 /* FOOTER STYLE ------------------------------------------------ */
