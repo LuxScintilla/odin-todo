@@ -200,27 +200,19 @@ body {
   margin-bottom: 20px;
 }
 
-.folder {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  border-left: 4px solid #dfdfdf;
-  background: linear-gradient(to right, #efefef, white);
-  padding: 10px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  cursor: pointer;
+.folder-title {
+  font-size: 1rem;
+  margin-left: 50px;
 }
 
-.folder:hover {
-  border-left: 4px solid #cfcfcf;
-  background: linear-gradient(to right, #dfdfdf, white);
-}
-
-.active-folder {
-  font-weight: bolder;
-  border-left: 4px solid var(--teal);
-  background: linear-gradient(to right, var(--light-teal), white);
+.edit-folder {
+  background-image: url(./img/edit.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  transition: 0.2s;
 }
 
 .delete-folder {
@@ -233,26 +225,17 @@ body {
   transition: 0.2s;
 }
 
+.edit-folder:hover,
 .delete-folder:hover {
   transform: scale(1.2);
-}
-
-/* FOOTER STYLE ------------------------------------------------ */
-
-.footer-wrapper {
-  background-color: white;
-  padding: 10px;
-}
-
-.footer-text {
-  font-size: 0.8rem;
-  color: var(--text-secondary-clr);
-  text-align: center;
 }
 
 /* COLLAPSIBLE STYLE ------------------------------------------------ */
 
 .collapsible {
+  display: grid;
+  grid-template-columns: 1fr 50px 50px;
+  align-items: center;
   position: relative;
   width: 100%;
   border: none;
@@ -267,13 +250,13 @@ body {
 .collapsible::before {
   position: absolute;
   content: "";
-  background-image: url(./img/folder.svg);
+  background-image: url(./img/folder-open-white.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 40px;
-  width: 40px;
-  top: 5px;
+  height: 30px;
+  width: 30px;
+  top: 10px;
   left: 10px;
   z-index: 1;
 }
@@ -286,6 +269,20 @@ body {
 .active {
   background-color: var(--dark-teal);
   color: black;
+}
+
+.active::before {
+  position: absolute;
+  content: "";
+  background-image: url(./img/folder.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
 }
 
 .active:hover {
@@ -306,4 +303,17 @@ body {
 .content {
   padding: 20px;
   background-color: #eeeeee;
+}
+
+/* FOOTER STYLE ------------------------------------------------ */
+
+.footer-wrapper {
+  background-color: white;
+  padding: 10px;
+}
+
+.footer-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary-clr);
+  text-align: center;
 }

@@ -32,11 +32,9 @@ function saveStorage() {
 function createFolderElement() {
   clearList(folderList);
   myFolders.forEach((folder) => {
-    const newFolder = document.createElement("button");
+    const newFolder = document.createElement("div");
     newFolder.classList.add("collapsible");
-    newFolder.setAttribute("type", "button");
     newFolder.dataset.folderID = folder.id;
-    newFolder.textContent = folder.name;
     newFolder.addEventListener("click", function () {
       this.classList.toggle("active");
       if (grow.clientHeight) {
@@ -46,6 +44,17 @@ function createFolderElement() {
       }
     });
 
+    const folderTitle = document.createElement("h2");
+    folderTitle.classList.add("folder-title");
+    folderTitle.textContent = folder.name;
+
+    const editFolder = document.createElement("div");
+    editFolder.classList.add("edit-folder");
+
+    const deleteFolder = document.createElement("div");
+    deleteFolder.classList.add("delete-folder");
+    deleteFolder.addEventListener("click", deleteFolderElement);
+
     const grow = document.createElement("div");
     grow.classList.add("grow");
 
@@ -53,6 +62,9 @@ function createFolderElement() {
     content.classList.add("content");
 
     folderList.appendChild(newFolder);
+    newFolder.appendChild(folderTitle);
+    newFolder.appendChild(editFolder);
+    newFolder.appendChild(deleteFolder);
     newFolder.insertAdjacentElement("afterend", grow);
     grow.appendChild(content);
   });
@@ -62,6 +74,15 @@ function clearList(list) {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
+}
+
+function deleteFolderElement() {
+  const ID = this.parentElement.dataset.folderID;
+  const folderArray = JSON.parse(localStorage.getItem(localStoreFolders));
+  const folderFiltered = folderArray.filter((folder) => folder.id !== +ID);
+  console.log(folderFiltered);
+  localStorage.setItem(localStoreFolders, JSON.stringify(folderFiltered));
+  createFolderElement();
 }
 
 createFolderElement();
