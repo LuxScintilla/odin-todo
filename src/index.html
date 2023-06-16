@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/style.css" />
-    <script defer src="./bundle.js"></script>
+    <script defer src="./src/index.js"></script>
     <title>Odin To Do List</title>
   </head>
   <body>
@@ -33,18 +33,14 @@
               placeholder="My New Folder Name"
               aria-label="New Folder Input"
             />
-            <button
-              type="submit"
-              class="new-folder-submit"
-              aria-label="Create New Folder"
-            >
+            <button class="new-folder-submit" aria-label="Create New Folder">
               Make New Folder
             </button>
           </form>
         </div>
         <div class="folder-list-div">
           <h2 class="folder-list-title">My Folders</h2>
-          <ul class="folder-list"></ul>
+          <div class="folder-collapse-container"></div>
         </div>
       </main>
       <footer class="footer-wrapper">

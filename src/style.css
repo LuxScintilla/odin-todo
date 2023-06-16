@@ -18,6 +18,7 @@
   --light-green: #cdffe2;
   --new-task-bg: #584a85;
   --dark-bg: #27203f;
+  --dark-teal: #47b69a;
 }
 
 body {
@@ -247,4 +248,62 @@ body {
   font-size: 0.8rem;
   color: var(--text-secondary-clr);
   text-align: center;
+}
+
+/* COLLAPSIBLE STYLE ------------------------------------------------ */
+
+.collapsible {
+  position: relative;
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-top: 10px;
+  font-weight: bolder;
+  color: white;
+  background-color: var(--new-task-bg);
+  transition: 0.4s;
+}
+
+.collapsible::before {
+  position: absolute;
+  content: "";
+  background-image: url(./img/folder.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  top: 5px;
+  left: 10px;
+  z-index: 1;
+}
+
+.collapsible:hover {
+  color: var(--teal);
+  box-shadow: 0px 0px 5px var(--teal);
+}
+
+.active {
+  background-color: var(--dark-teal);
+  color: black;
+}
+
+.active:hover {
+  color: var(--new-task-bg);
+  box-shadow: 0px 0px 5px var(--new-task-bg);
+}
+
+.grow {
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  height: 0;
+  overflow: hidden;
+}
+
+.content {
+  padding: 20px;
+  background-color: #eeeeee;
 }
