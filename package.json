@@ -1,6 +1,9 @@
 {
   "name": "odin-todo",
   "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/LuxScintilla/odin-todo.git"
+  },
   "description": "",
   "main": "index.js",
   "private": true,

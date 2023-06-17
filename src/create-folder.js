@@ -1,7 +1,8 @@
 import deleteFolderElement from "./delete-folder.js";
-import { myFolders, folderList } from "./index.js";
+import { folderList } from "./index.js";
 
 export default function createFolderElement() {
+  const myFolders = JSON.parse(localStorage.getItem("localStoreFolders"));
   myFolders.forEach((folder) => {
     const newFolder = document.createElement("div");
     newFolder.classList.add("collapsible");
