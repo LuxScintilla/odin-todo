@@ -1,11 +1,11 @@
-import { render, myFolders, localStoreFolders } from "./index.js";
+import { FOLDERS } from "./data.js";
+import { render } from "./index.js";
 
 export default function deleteFolderElement() {
   const ID = this.parentElement.dataset.folderID;
-  const folderArray = JSON.parse(localStorage.getItem(localStoreFolders));
-  const folderFiltered = folderArray.filter((folder) => folder.id !== +ID);
-  console.log(folderFiltered);
-  console.log(myFolders);
-  localStorage.setItem(localStoreFolders, JSON.stringify(folderFiltered));
+  FOLDERS.getStorage();
+  const filtered = FOLDERS.names.filter((folder) => folder.id !== +ID);
+  console.log(filtered);
+  FOLDERS.storage.setItem(FOLDERS.key, JSON.stringify(filtered));
   render();
 }
