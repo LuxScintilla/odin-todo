@@ -1,4 +1,5 @@
 import { FOLDERS } from "./data.js";
+import editFolderElement from "./edit-folder.js";
 import deleteFolderElement from "./delete-folder.js";
 import { folderList } from "./index.js";
 
@@ -23,6 +24,7 @@ export default function createFolderElement() {
 
     const editFolder = document.createElement("div");
     editFolder.classList.add("edit-folder");
+    editFolder.addEventListener("click", editFolderElement);
 
     const deleteFolder = document.createElement("div");
     deleteFolder.classList.add("delete-folder");

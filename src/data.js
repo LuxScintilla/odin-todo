@@ -23,4 +23,5 @@ export const FOLDERS = {
   saveObject() {
     FOLDERS.storage.setItem(FOLDERS.key, JSON.stringify(FOLDERS.names));
   },
+  editObject() {},
 };
