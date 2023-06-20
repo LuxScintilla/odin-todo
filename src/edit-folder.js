@@ -3,6 +3,7 @@ import { render, folderList } from "./index.js";
 
 export default function editFolderElement() {
   const ID = this.parentElement.dataset.folderID;
+  console.log(ID);
 
   const modalDialog = document.createElement("dialog");
   modalDialog.classList.add("modal");
@@ -18,6 +19,7 @@ export default function editFolderElement() {
   const modalInput = document.createElement("input");
   modalInput.classList.add("modal-input");
   modalInput.setAttribute("type", "text");
+  modalInput.setAttribute("name", "folder-edit");
   modalInput.setAttribute("autocomplete", "off");
   modalInput.setAttribute("required", "");
 
@@ -26,6 +28,7 @@ export default function editFolderElement() {
 
   const modalSubmit = document.createElement("button");
   modalSubmit.classList.add("modal-submit");
+  modalSubmit.setAttribute("type", "button");
   modalSubmit.textContent = "Submit";
   modalSubmit.addEventListener("click", function (e) {
     e.preventDefault();
@@ -35,17 +38,23 @@ export default function editFolderElement() {
       FOLDERS.getStorage();
       FOLDERS.names.forEach((folder) => {
         if (folder.id === +ID) {
+          console.log(folder.id);
+          console.log(+ID);
+          console.log(folder.name);
           folder.name = modalInput.value;
           FOLDERS.saveObject();
+          console.log(folder.name);
         }
         modalDialog.close();
         render();
+        console.log(folder.name);
       });
     }
   });
 
   const modalCancel = document.createElement("button");
   modalCancel.classList.add("modal-cancel");
+  modalCancel.setAttribute("type", "button");
   modalCancel.textContent = "Cancel";
   modalCancel.addEventListener("click", function () {
     modalDialog.close();

@@ -1,4 +1,5 @@
 import { FOLDERS } from "./data.js";
+import addTaskElement from "./add-task.js";
 import editFolderElement from "./edit-folder.js";
 import deleteFolderElement from "./delete-folder.js";
 import { folderList } from "./index.js";
@@ -22,6 +23,10 @@ export default function createFolderElement() {
     folderTitle.classList.add("folder-title");
     folderTitle.textContent = folder.name;
 
+    const addTask = document.createElement("div");
+    addTask.classList.add("add-task");
+    addTask.addEventListener("click", addTaskElement);
+
     const editFolder = document.createElement("div");
     editFolder.classList.add("edit-folder");
     editFolder.addEventListener("click", editFolderElement);
@@ -38,6 +43,7 @@ export default function createFolderElement() {
 
     folderList.appendChild(newFolder);
     newFolder.appendChild(folderTitle);
+    newFolder.appendChild(addTask);
     newFolder.appendChild(editFolder);
     newFolder.appendChild(deleteFolder);
     newFolder.insertAdjacentElement("afterend", grow);

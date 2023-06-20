@@ -23,5 +23,7 @@ export const FOLDERS = {
   saveObject() {
     FOLDERS.storage.setItem(FOLDERS.key, JSON.stringify(FOLDERS.names));
   },
-  editObject() {},
+  addTask() {
+    FOLDERS.names.forEach((folder) => console.log(folder.tasks));
+  },
 };
