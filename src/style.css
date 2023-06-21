@@ -329,7 +329,7 @@ body {
   background-color: #eeeeee;
 }
 
-/* MODAL STYLE ------------------------------------------------ */
+/* EDIT MODAL STYLE ------------------------------------------------ */
 
 .modal {
   background-color: var(--main-bg-clr);
@@ -345,6 +345,10 @@ body {
 .modal::backdrop {
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+}
+
+.modal-title {
+  text-align: center;
 }
 
 .modal-input {
@@ -379,7 +383,7 @@ body {
   box-shadow: 0px 0px 5px var(--teal);
 }
 
-/* MODAL STYLE ------------------------------------------------ */
+/* TASK MODAL STYLE ------------------------------------------------ */
 
 .task-modal {
   background-color: var(--main-bg-clr);
@@ -397,9 +401,47 @@ body {
   -webkit-backdrop-filter: blur(3px);
 }
 
+.task-modal-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .task-modal-form {
   display: flex;
   flex-direction: column;
+}
+
+.task-input {
+  height: 2rem;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--dark-bg);
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.task-textarea {
+  height: 4rem;
+  outline: none;
+  border: 1px solid var(--dark-bg);
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+.task-submit,
+.task-cancel {
+  background-color: var(--dark-bg);
+  color: var(--text-header-clr);
+  border: none;
+  height: 2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.task-submit:hover,
+.task-cancel:hover {
+  color: var(--teal);
+  box-shadow: 0px 0px 5px var(--teal);
 }
 
 /* FOOTER STYLE ------------------------------------------------ */

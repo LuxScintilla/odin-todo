@@ -1,9 +1,9 @@
 import "./style.css";
 import { FOLDERS } from "./data.js";
-import createFolderElement from "./create-folder.js";
+import { createDOM } from "./create-dom.js";
 
 export const folderList = document.querySelector(".folder-collapse-container");
-export const newFolderInput = document.querySelector(".new-folder-input");
+const newFolderInput = document.querySelector(".new-folder-input");
 const newFolderSubmit = document.querySelector(".new-folder-submit");
 
 newFolderSubmit.addEventListener("click", (e) => {
@@ -12,7 +12,7 @@ newFolderSubmit.addEventListener("click", (e) => {
     return;
   } else {
     FOLDERS.getStorage();
-    FOLDERS.createObject();
+    FOLDERS.createObject(newFolderInput.value);
     FOLDERS.saveObject();
     render();
     newFolderInput.value = null;
@@ -21,7 +21,7 @@ newFolderSubmit.addEventListener("click", (e) => {
 
 export function render() {
   clearList(folderList);
-  createFolderElement();
+  createDOM.createFolderElement();
 }
 
 function clearList(list) {
@@ -30,4 +30,4 @@ function clearList(list) {
   }
 }
 
-createFolderElement();
+createDOM.createFolderElement();
