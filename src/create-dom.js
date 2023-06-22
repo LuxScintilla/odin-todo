@@ -4,6 +4,9 @@ import { FOLDERS, TASKS } from "./data.js";
 export const createDOM = {
   createFolderElement() {
     FOLDERS.getStorage();
+    if (FOLDERS.names === null) {
+      return;
+    }
     FOLDERS.names.forEach((folder) => {
       const newFolder = document.createElement("div");
       newFolder.classList.add("collapsible");
@@ -51,7 +54,6 @@ export const createDOM = {
 
   editFolderElement() {
     const ID = this.parentElement.dataset.folderID;
-    console.log(ID);
 
     const modalDialog = document.createElement("dialog");
     modalDialog.classList.add("modal");
@@ -200,5 +202,15 @@ export const createDOM = {
     modalDialog.showModal();
   },
 
-  createTaskElement() {},
+  createTaskElement() {
+    FOLDERS.getStorage();
+    FOLDERS.names.forEach((folder) => {
+      if (folder.tasks.length == 0) {
+        const emptyNotice = document.createElement("p");
+        emptyNotice.textContent =
+          "There are no tasks in this folder yet, click the plus button to add your first.";
+        content.appendChild(emptyNotice);
+      }
+    });
+  },
 };

@@ -22,6 +22,7 @@ newFolderSubmit.addEventListener("click", (e) => {
 export function render() {
   clearList(folderList);
   createDOM.createFolderElement();
+  createDOM.createTaskElement();
 }
 
 function clearList(list) {
