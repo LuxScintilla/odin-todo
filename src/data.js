@@ -73,16 +73,10 @@ export const TASKS = {
     const ID = this.parentElement.dataset.taskID;
     FOLDERS.getStorage();
     FOLDERS.names.forEach((folder) => {
-      const index = folder.tasks.indexOf(ID);
-      if (index > -1) {
-        folder.tasks.splice(index, 1);
-      }
+      const filtered = folder.tasks.filter((task) => task.id !== +ID);
+      folder.tasks.push(filtered);
+      FOLDERS.saveObject();
+      render();
     });
-
-    // FOLDERS.names.forEach((folder) => {
-    //   const filtered = folder.tasks.filter((task) => task.id !== +ID);
-    //   FOLDERS.storage.setItem(FOLDERS.key, JSON.stringify(filtered));
-    //   render();
-    // });
   },
 };

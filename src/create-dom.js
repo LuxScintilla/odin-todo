@@ -1,9 +1,9 @@
 import { render, folderList } from "./index.js";
 import { FOLDERS, TASKS } from "./data.js";
 
-export const createDOM = {
-  content: document.createElement("div"),
+let content;
 
+export const createDOM = {
   createFolderElement() {
     FOLDERS.getStorage();
     if (FOLDERS.names === null) {
@@ -41,8 +41,9 @@ export const createDOM = {
       const grow = document.createElement("div");
       grow.classList.add("grow");
 
-      // const content = document.createElement("div");
-      this.content.classList.add("content");
+      content = document.createElement("div");
+      content.dataset.folderID = folder.id;
+      content.classList.add("content");
 
       folderList.appendChild(newFolder);
       newFolder.appendChild(folderTitle);
@@ -50,7 +51,7 @@ export const createDOM = {
       newFolder.appendChild(editFolder);
       newFolder.appendChild(deleteFolder);
       newFolder.insertAdjacentElement("afterend", grow);
-      grow.appendChild(this.content);
+      grow.appendChild(content);
     });
   },
 
@@ -213,10 +214,13 @@ export const createDOM = {
     FOLDERS.getStorage();
     FOLDERS.names.forEach((folder) => {
       if (folder.tasks.length == 0) {
-        const emptyNotice = document.createElement("p");
-        emptyNotice.textContent =
-          "There are no tasks in this folder yet, click the plus button to add your first.";
-        this.content.appendChild(emptyNotice);
+        const test = document.querySelector("[data-folder-i-d]");
+        console.log(test);
+
+        // const emptyNotice = document.createElement("p");
+        // emptyNotice.textContent =
+        //   "There are no tasks in this folder yet, click the plus button to add your first.";
+        // content.appendChild(emptyNotice);
       } else {
         folder.tasks.forEach((task) => {
           const taskWrap = document.createElement("div");
@@ -247,7 +251,8 @@ export const createDOM = {
 
           nameDescWrap.append(taskName, taskDesc);
           taskWrap.append(nameDescWrap, taskDate, taskEdit, taskDelete);
-          this.content.appendChild(taskWrap);
+
+          content.appendChild(taskWrap);
         });
       }
     });
