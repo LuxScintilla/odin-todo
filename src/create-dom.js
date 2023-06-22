@@ -2,6 +2,8 @@ import { render, folderList } from "./index.js";
 import { FOLDERS, TASKS } from "./data.js";
 
 export const createDOM = {
+  content: document.createElement("div"),
+
   createFolderElement() {
     FOLDERS.getStorage();
     if (FOLDERS.names === null) {
@@ -39,8 +41,8 @@ export const createDOM = {
       const grow = document.createElement("div");
       grow.classList.add("grow");
 
-      const content = document.createElement("div");
-      content.classList.add("content");
+      // const content = document.createElement("div");
+      this.content.classList.add("content");
 
       folderList.appendChild(newFolder);
       newFolder.appendChild(folderTitle);
@@ -48,7 +50,7 @@ export const createDOM = {
       newFolder.appendChild(editFolder);
       newFolder.appendChild(deleteFolder);
       newFolder.insertAdjacentElement("afterend", grow);
-      grow.appendChild(content);
+      grow.appendChild(this.content);
     });
   },
 
@@ -175,6 +177,7 @@ export const createDOM = {
       let taskDate = taskDateInput.value;
       TASKS.createObject(taskName, taskDesc, taskDate);
       FOLDERS.saveObject();
+      createDOM.createTaskElement();
       modalDialog.close();
     });
 
@@ -203,13 +206,49 @@ export const createDOM = {
   },
 
   createTaskElement() {
+    while (this.firstChild) {
+      this.removeChild(this.firstChild);
+    }
+
     FOLDERS.getStorage();
     FOLDERS.names.forEach((folder) => {
       if (folder.tasks.length == 0) {
         const emptyNotice = document.createElement("p");
         emptyNotice.textContent =
           "There are no tasks in this folder yet, click the plus button to add your first.";
-        content.appendChild(emptyNotice);
+        this.content.appendChild(emptyNotice);
+      } else {
+        folder.tasks.forEach((task) => {
+          const taskWrap = document.createElement("div");
+          taskWrap.classList.add("task-wrap");
+          taskWrap.dataset.taskID = task.id;
+
+          const nameDescWrap = document.createElement("div");
+          nameDescWrap.classList.add("name-desc-wrap");
+
+          const taskName = document.createElement("h3");
+          taskName.classList.add("task-name");
+          taskName.textContent = task.name;
+
+          const taskDesc = document.createElement("p");
+          taskDesc.classList.add("task-desc");
+          taskDesc.textContent = task.desc;
+
+          const taskDate = document.createElement("p");
+          taskDate.classList.add("task-date");
+          taskDate.textContent = task.date;
+
+          const taskEdit = document.createElement("div");
+          taskEdit.classList.add("task-edit");
+
+          const taskDelete = document.createElement("div");
+          taskDelete.classList.add("task-delete");
+          taskDelete.addEventListener("click", TASKS.deleteObject);
+
+          nameDescWrap.append(taskName, taskDesc);
+          taskWrap.append(nameDescWrap, taskDate, taskEdit, taskDelete);
+          this.content.appendChild(taskWrap);
+        });
       }
     });
   },

@@ -46,7 +46,6 @@ export const TASKS = {
   names: [],
   ID: null,
   taskID: "localStoredTaskID",
-  storage: window.localStorage,
   createObject(name, desc, date) {
     const newTaskObj = {
       id: Date.now(),
@@ -61,5 +60,29 @@ export const TASKS = {
         folder.tasks.push(newTaskObj);
       }
     });
+  },
+  saveID() {
+    FOLDERS.storage.setItem(TASKS.taskID, JSON.stringify(TASKS.ID));
+  },
+  getID() {
+    let data = FOLDERS.storage.getItem(TASKS.taskID);
+    TASKS.ID = JSON.parse(data);
+    return TASKS;
+  },
+  deleteObject() {
+    const ID = this.parentElement.dataset.taskID;
+    FOLDERS.getStorage();
+    FOLDERS.names.forEach((folder) => {
+      const index = folder.tasks.indexOf(ID);
+      if (index > -1) {
+        folder.tasks.splice(index, 1);
+      }
+    });
+
+    // FOLDERS.names.forEach((folder) => {
+    //   const filtered = folder.tasks.filter((task) => task.id !== +ID);
+    //   FOLDERS.storage.setItem(FOLDERS.key, JSON.stringify(filtered));
+    //   render();
+    // });
   },
 };

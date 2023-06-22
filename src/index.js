@@ -32,3 +32,4 @@ function clearList(list) {
 }
 
 createDOM.createFolderElement();
+createDOM.createTaskElement();

@@ -14,9 +14,10 @@
   --teal: #00ffc8;
   --light-purple: #f9e3ff;
   --light-blue: #c3f1ff;
-  --light-teal: #cdfff4;
+  --light-teal: #d4ebe6;
   --light-green: #cdffe2;
   --new-task-bg: #584a85;
+  --light-new-task-bg: #e2daff;
   --dark-bg: #27203f;
   --dark-teal: #47b69a;
 }
@@ -442,6 +443,48 @@ body {
 .task-cancel:hover {
   color: var(--teal);
   box-shadow: 0px 0px 5px var(--teal);
+}
+
+/* TASK STYLE ------------------------------------------------ */
+
+.task-wrap {
+  display: grid;
+  grid-template-columns: 1fr 100px 50px 50px;
+  background-color: var(--main-bg-clr);
+  padding: 10px 0px 10px 10px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.task-wrap:hover {
+  background-color: var(--light-teal);
+}
+
+.task-edit {
+  background-image: url(./img/edit.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  transition: 0.2s;
+}
+
+.task-delete {
+  background-image: url(./img/trash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  transition: 0.2s;
+}
+
+.task-edit:hover,
+.task-delete:hover {
+  transform: scale(1.2);
 }
 
 /* FOOTER STYLE ------------------------------------------------ */
