@@ -73,12 +73,13 @@ export const TASKS = {
   deleteObject() {
     const ID = this.parentElement.dataset.taskID;
     FOLDERS.getStorage();
-    FOLDERS.names.forEach((folder) => {
-      const filtered = folder.tasks.filter((task) => task.id !== +ID);
-      folder.tasks = filtered;
+
+    for (let i = 0; FOLDERS.names.length; i++) {
+      const filtered = FOLDERS.names[i].tasks.filter((task) => task.id !== +ID);
+      FOLDERS.names[i].tasks = filtered;
       FOLDERS.saveObject();
       render();
       createDOM.createTaskElement();
-    });
+    }
   },
 };
