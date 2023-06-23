@@ -1,4 +1,4 @@
-import { render, folderList } from "./index.js";
+import { render, clearList, folderList } from "./index.js";
 import { FOLDERS, TASKS } from "./data.js";
 
 let content;
@@ -210,12 +210,14 @@ export const createDOM = {
   createTaskElement() {
     FOLDERS.getStorage();
     for (let i = 0; i < FOLDERS.names.length; i++) {
+      const targetContent = document.querySelectorAll(".content");
+      clearList(targetContent[i]);
+
       if (FOLDERS.names[i].tasks.length == 0) {
         const emptyNotice = document.createElement("p");
         emptyNotice.textContent =
           "No tasks here yet, click the plus button to add your first task.";
 
-        const targetContent = document.querySelectorAll(".content");
         targetContent[i].appendChild(emptyNotice);
       } else {
         FOLDERS.names[i].tasks.forEach((task) => {
@@ -248,7 +250,6 @@ export const createDOM = {
           nameDescWrap.append(taskName, taskDesc);
           taskWrap.append(nameDescWrap, taskDate, taskEdit, taskDelete);
 
-          const targetContent = document.querySelectorAll(".content");
           targetContent[i].appendChild(taskWrap);
         });
       }

@@ -25,7 +25,7 @@ export function render() {
   createDOM.createTaskElement();
 }
 
-function clearList(list) {
+export function clearList(list) {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
