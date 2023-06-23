@@ -1,4 +1,5 @@
 import { render } from "./index.js";
+import { createDOM } from "./create-dom.js";
 
 export const FOLDERS = {
   names: [],
@@ -74,9 +75,10 @@ export const TASKS = {
     FOLDERS.getStorage();
     FOLDERS.names.forEach((folder) => {
       const filtered = folder.tasks.filter((task) => task.id !== +ID);
-      folder.tasks.push(filtered);
+      folder.tasks = filtered;
       FOLDERS.saveObject();
       render();
+      createDOM.createTaskElement();
     });
   },
 };
