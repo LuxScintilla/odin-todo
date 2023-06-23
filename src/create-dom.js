@@ -217,6 +217,40 @@ export const createDOM = {
 
         const targetContent = document.querySelectorAll(".content");
         targetContent[i].appendChild(emptyNotice);
+      } else {
+        FOLDERS.names[i].tasks.forEach((task) => {
+          const taskWrap = document.createElement("div");
+          taskWrap.classList.add("task-wrap");
+          taskWrap.dataset.taskID = task.id;
+
+          const nameDescWrap = document.createElement("div");
+          nameDescWrap.classList.add("name-desc-wrap");
+
+          const taskName = document.createElement("h3");
+          taskName.classList.add("task-name");
+          taskName.textContent = task.name;
+
+          const taskDesc = document.createElement("p");
+          taskDesc.classList.add("task-desc");
+          taskDesc.textContent = task.desc;
+
+          const taskDate = document.createElement("p");
+          taskDate.classList.add("task-date");
+          taskDate.textContent = task.date;
+
+          const taskEdit = document.createElement("div");
+          taskEdit.classList.add("task-edit");
+
+          const taskDelete = document.createElement("div");
+          taskDelete.classList.add("task-delete");
+          taskDelete.addEventListener("click", TASKS.deleteObject);
+
+          nameDescWrap.append(taskName, taskDesc);
+          taskWrap.append(nameDescWrap, taskDate, taskEdit, taskDelete);
+
+          const targetContent = document.querySelectorAll(".content");
+          targetContent[i].appendChild(taskWrap);
+        });
       }
     }
   },
