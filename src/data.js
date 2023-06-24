@@ -1,4 +1,4 @@
-import { render } from "./index.js";
+import { render, taskCounter } from "./index.js";
 import { createDOM } from "./create-dom.js";
 
 export const FOLDERS = {
@@ -83,5 +83,6 @@ export const TASKS = {
     FOLDERS.saveObject();
     render();
     createDOM.createTaskElement();
+    taskCounter();
   },
 };

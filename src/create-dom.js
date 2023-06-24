@@ -1,4 +1,4 @@
-import { render, clearList, folderList } from "./index.js";
+import { render, clearList, taskCounter, folderList } from "./index.js";
 import { FOLDERS, TASKS } from "./data.js";
 
 let content;
@@ -182,6 +182,7 @@ export const createDOM = {
       TASKS.createObject(taskName, taskDesc, taskDate);
       FOLDERS.saveObject();
       createDOM.createTaskElement();
+      taskCounter();
       modalDialog.close();
     });
 
