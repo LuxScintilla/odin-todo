@@ -56,7 +56,8 @@ export const createDOM = {
     });
   },
 
-  editFolderElement() {
+  editFolderElement(e) {
+    e.stopPropagation();
     const ID = this.parentElement.dataset.folderID;
 
     const modalDialog = document.createElement("dialog");
@@ -117,7 +118,8 @@ export const createDOM = {
     modalDialog.showModal();
   },
 
-  addTaskElement() {
+  addTaskElement(e) {
+    e.stopPropagation();
     FOLDERS.ID = this.parentElement.dataset.folderID;
     FOLDERS.saveID();
 
@@ -257,7 +259,8 @@ export const createDOM = {
     }
   },
 
-  editTaskElement() {
+  editTaskElement(e) {
+    e.stopPropagation();
     const ID = this.parentElement.dataset.taskID;
 
     const modalDialog = document.createElement("dialog");

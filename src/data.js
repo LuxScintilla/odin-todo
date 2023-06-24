@@ -34,7 +34,8 @@ export const FOLDERS = {
     FOLDERS.ID = JSON.parse(data);
     return FOLDERS;
   },
-  deleteObject() {
+  deleteObject(e) {
+    e.stopPropagation();
     const ID = this.parentElement.dataset.folderID;
     FOLDERS.getStorage();
     const filtered = FOLDERS.names.filter((folder) => folder.id !== +ID);
@@ -70,16 +71,17 @@ export const TASKS = {
     TASKS.ID = JSON.parse(data);
     return TASKS;
   },
-  deleteObject() {
+  deleteObject(e) {
+    e.stopPropagation();
     const ID = this.parentElement.dataset.taskID;
     FOLDERS.getStorage();
 
-    for (let i = 0; FOLDERS.names.length; i++) {
-      const filtered = FOLDERS.names[i].tasks.filter((task) => task.id !== +ID);
-      FOLDERS.names[i].tasks = filtered;
-      FOLDERS.saveObject();
-      render();
-      createDOM.createTaskElement();
-    }
+    FOLDERS.names.forEach((folder) => {
+      const filtered = folder.tasks.filter((task) => task.id !== +ID);
+      folder.tasks = filtered;
+    });
+    FOLDERS.saveObject();
+    render();
+    createDOM.createTaskElement();
   },
 };
