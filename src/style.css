@@ -6,7 +6,8 @@
 
 :root {
   --main-bg-clr: #ffffff;
-  --text-main-clr: black;
+  --text-main-clr: #000000;
+  --folder-list-title-txt-clr: #000000;
   --text-header-clr: white;
   --text-secondary-clr: #808080;
   --purple: #cc00ff;
@@ -20,6 +21,47 @@
   --light-new-task-bg: #e2daff;
   --dark-bg: #27203f;
   --dark-teal: #47b69a;
+  --header-img: url(./img/header-bg.jpg);
+}
+
+html[data-theme="light"] {
+  --main-bg-clr: #ffffff;
+  --text-main-clr: #000000;
+  --folder-list-title-txt-clr: #000000;
+  --text-header-clr: white;
+  --text-secondary-clr: #808080;
+  --purple: #cc00ff;
+  --blue: #00c3ff;
+  --teal: #00ffc8;
+  --light-purple: #f9e3ff;
+  --light-blue: #c3f1ff;
+  --light-teal: #d4ebe6;
+  --light-green: #cdffe2;
+  --new-task-bg: #584a85;
+  --light-new-task-bg: #e2daff;
+  --dark-bg: #27203f;
+  --dark-teal: #47b69a;
+  --header-img: url(./img/header-bg.jpg);
+}
+
+html[data-theme="dark"] {
+  --main-bg-clr: #202020;
+  --text-main-clr: #000000;
+  --folder-list-title-txt-clr: #ffffff;
+  --text-header-clr: white;
+  --text-secondary-clr: #808080;
+  --purple: #cc00ff;
+  --blue: #00c3ff;
+  --teal: #000000;
+  --light-purple: #f9e3ff;
+  --light-blue: #c3f1ff;
+  --light-teal: #d4ebe6;
+  --light-green: #cdffe2;
+  --new-task-bg: #0f3039;
+  --light-new-task-bg: #e2daff;
+  --dark-bg: #584a85;
+  --dark-teal: #216c8c;
+  --header-img: url(./img/starry-anime-bg.jpg);
 }
 
 body {
@@ -28,6 +70,8 @@ body {
   align-items: center;
   height: 100vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--main-bg-clr);
+  transition: 0.3s;
 }
 
 .content-wrapper {
@@ -43,10 +87,11 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   color: var(--text-header-clr);
-  background-image: url(./img/header-bg.jpg);
+  background-image: var(--header-img);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 0.3s;
 }
 
 .header-left {
@@ -101,22 +146,50 @@ body {
 }
 
 .header-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 65px 1fr 1fr;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.theme {
-  background-color: red;
+.theme-toggle {
+  justify-self: center;
+  background-color: transparent;
+  border: none;
+  background: url(./img/dark-toggle.png);
+  background-position: center;
+  background-repeat: none;
+  background-size: contain;
   width: 50px;
-  height: 50px;
+  height: 25px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.theme-toggle-active {
+  justify-self: center;
+  background-color: transparent;
+  border: none;
+  background: url(./img/light-toggle.png);
+  background-position: center;
+  background-repeat: none;
+  background-size: contain;
+  width: 50px;
+  height: 25px;
+  margin-top: 20px;
+  transition: 0.3s;
 }
 
 .task-amount {
   font-size: 2rem;
   font-weight: bolder;
+  align-self: flex-end;
+  justify-self: center;
+}
+
+.task-text {
+  align-self: flex-start;
+  justify-self: center;
 }
 
 /* MAIN STYLE ------------------------------------------------ */
@@ -126,6 +199,7 @@ body {
   padding: 20px;
   box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
+  transition: 0.3s;
 }
 
 /* width */
@@ -204,6 +278,7 @@ body {
 
 .folder-list-title {
   font-size: 1rem;
+  color: var(--folder-list-title-txt-clr);
   margin-bottom: 20px;
 }
 
