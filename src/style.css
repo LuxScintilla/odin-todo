@@ -6,61 +6,88 @@
 
 :root {
   --main-bg-clr: #ffffff;
+  --secondary-bg-clr: #eeeeee;
+  --text-header-clr: #ffffff;
   --text-main-clr: #000000;
-  --folder-list-title-txt-clr: #000000;
-  --text-header-clr: white;
   --text-secondary-clr: #808080;
-  --purple: #cc00ff;
-  --blue: #00c3ff;
-  --teal: #00ffc8;
-  --light-purple: #f9e3ff;
-  --light-blue: #c3f1ff;
-  --light-teal: #d4ebe6;
-  --light-green: #cdffe2;
-  --new-task-bg: #584a85;
-  --light-new-task-bg: #e2daff;
-  --dark-bg: #27203f;
-  --dark-teal: #47b69a;
+  --text-task-clr: #000000;
+
+  --text-l2d-clr: #ffffff;
+  --text-folder-light-clr: #ffffff;
+  --text-folder-dark-clr: #000000;
+
+  --rainbow-clr-1: #cc00ff;
+  --rainbow-clr-2: #00c3ff;
+  --rainbow-clr-3: #00ffc8;
+
+  --folder-bg: #584a85;
+  --folder-bg-hover: #877ca8;
+  --folder-active-bg: #47b69a;
+  --folder-active-bg-hover: #84c5b5;
+
+  --accent-clr: #47b69a;
+  --task-bg-clr: #ffffff;
+  --task-hover: #d4ebe6;
+
+  --dark-accent-bg: #27203f;
   --header-img: url(./img/header-bg.jpg);
 }
 
 html[data-theme="light"] {
   --main-bg-clr: #ffffff;
+  --secondary-bg-clr: #eeeeee;
+  --text-header-clr: #ffffff;
   --text-main-clr: #000000;
-  --folder-list-title-txt-clr: #000000;
-  --text-header-clr: white;
   --text-secondary-clr: #808080;
-  --purple: #cc00ff;
-  --blue: #00c3ff;
-  --teal: #00ffc8;
-  --light-purple: #f9e3ff;
-  --light-blue: #c3f1ff;
-  --light-teal: #d4ebe6;
-  --light-green: #cdffe2;
-  --new-task-bg: #584a85;
-  --light-new-task-bg: #e2daff;
-  --dark-bg: #27203f;
-  --dark-teal: #47b69a;
+  --text-task-clr: #000000;
+
+  --text-l2d-clr: #ffffff;
+  --text-folder-light-clr: #ffffff;
+  --text-folder-dark-clr: #000000;
+
+  --rainbow-clr-1: #cc00ff;
+  --rainbow-clr-2: #00c3ff;
+  --rainbow-clr-3: #00ffc8;
+
+  --folder-bg: #584a85;
+  --folder-bg-hover: #877ca8;
+  --folder-active-bg: #47b69a;
+  --folder-active-bg-hover: #84c5b5;
+
+  --accent-clr: #47b69a;
+  --task-bg-clr: #ffffff;
+  --task-hover: #d4ebe6;
+
+  --dark-accent-bg: #27203f;
   --header-img: url(./img/header-bg.jpg);
 }
 
 html[data-theme="dark"] {
   --main-bg-clr: #202020;
+  --secondary-bg-clr: #151515;
+  --text-header-clr: #ffffff;
   --text-main-clr: #000000;
-  --folder-list-title-txt-clr: #ffffff;
-  --text-header-clr: white;
   --text-secondary-clr: #808080;
-  --purple: #cc00ff;
-  --blue: #00c3ff;
-  --teal: #000000;
-  --light-purple: #f9e3ff;
-  --light-blue: #c3f1ff;
-  --light-teal: #d4ebe6;
-  --light-green: #cdffe2;
-  --new-task-bg: #0f3039;
-  --light-new-task-bg: #e2daff;
-  --dark-bg: #584a85;
-  --dark-teal: #216c8c;
+  --text-task-clr: #ffffff;
+
+  --text-l2d-clr: #ffffff;
+  --text-folder-light-clr: #ffffff;
+  --text-folder-dark-clr: #000000;
+
+  --rainbow-clr-1: #cc00ff;
+  --rainbow-clr-2: #00c3ff;
+  --rainbow-clr-3: #00ffc8;
+
+  --folder-bg: #1f5f7b;
+  --folder-bg-hover: #537c8d;
+  --folder-active-bg: #8981bc;
+  --folder-active-bg-hover: #b1a8e4;
+
+  --accent-clr: #8981bc;
+  --task-bg-clr: #202020;
+  --task-hover: #303030;
+
+  --dark-accent-bg: #083649;
   --header-img: url(./img/starry-anime-bg.jpg);
 }
 
@@ -112,9 +139,9 @@ body {
   left: 0px;
   background: linear-gradient(
     to right,
-    var(--purple),
-    var(--blue),
-    var(--teal)
+    var(--rainbow-clr-1),
+    var(--rainbow-clr-2),
+    var(--rainbow-clr-3)
   );
 }
 
@@ -211,29 +238,19 @@ body {
 ::-webkit-scrollbar-track {
   background-color: linear-gradient(
     to bottom,
-    var(--dark-bg),
-    var(--new-task-bg)
+    var(--dark-accent-bg),
+    var(--folder-bg)
   );
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--dark-bg);
+  background: var(--dark-accent-bg);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-bg);
-}
-
-/* TASKS PAGE STYLE ------------------------------------------------ */
-
-.tasks-title {
-  text-align: center;
-  font-weight: 100;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: var(--text-main-clr);
+  background: var(--dark-accent-bg);
 }
 
 /* CREATE NEW FOLDER STYLE ------------------------------------------------ */
@@ -250,19 +267,18 @@ body {
 
 .new-folder-input {
   outline: none;
-  border: 1px solid var(--dark-bg);
+  border: 1px solid var(--dark-accent-bg);
   padding-left: 10px;
 }
 
 .new-folder-input:focus {
-  background-color: var(--light-purple);
-  border: 1px solid var(--dark-bg);
+  border: 1px solid var(--dark-accent-bg);
 }
 
 .new-folder-submit {
   grid-column: 2;
-  background-color: var(--dark-bg);
-  color: var(--text-header-clr);
+  background-color: var(--dark-accent-bg);
+  color: var(--text-l2d-clr);
   border: none;
   height: 2rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -270,15 +286,14 @@ body {
 }
 
 .new-folder-submit:hover {
-  color: var(--teal);
-  box-shadow: 0px 0px 5px var(--teal);
+  background-color: var(--accent-clr);
 }
 
 /* FOLDER STYLE ------------------------------------------------ */
 
 .folder-list-title {
   font-size: 1rem;
-  color: var(--folder-list-title-txt-clr);
+  color: var(--text-folder-dark-clr);
   margin-bottom: 20px;
 }
 
@@ -338,8 +353,8 @@ body {
   height: 50px;
   margin-top: 10px;
   font-weight: bolder;
-  color: var(--text-header-clr);
-  background-color: var(--new-task-bg);
+  color: var(--text-folder-light-clr);
+  background-color: var(--folder-bg);
   transition: 0.4s;
 }
 
@@ -368,13 +383,12 @@ body {
 }
 
 .collapsible:hover {
-  color: var(--teal);
-  box-shadow: 0px 0px 5px var(--teal);
+  background-color: var(--folder-bg-hover);
 }
 
 .active {
-  background-color: var(--dark-teal);
-  color: black;
+  background-color: var(--folder-active-bg);
+  color: var(--text-folder-dark-clr);
 }
 
 .active::before {
@@ -392,8 +406,7 @@ body {
 }
 
 .active:hover {
-  color: var(--new-task-bg);
-  box-shadow: 0px 0px 5px var(--new-task-bg);
+  background-color: var(--folder-active-bg-hover);
 }
 
 .grow {
@@ -408,15 +421,15 @@ body {
 
 .content {
   padding: 20px;
-  background-color: #eeeeee;
+  background-color: var(--secondary-bg-clr);
 }
 
 /* EDIT MODAL STYLE ------------------------------------------------ */
 
 .modal {
   background-color: var(--main-bg-clr);
-  border-top: 4px solid var(--new-task-bg);
-  border-bottom: 4px solid var(--new-task-bg);
+  border-top: 4px solid var(--accent-clr);
+  border-bottom: 4px solid var(--accent-clr);
   border-left: 0;
   border-right: 0;
   padding: 20px;
@@ -430,6 +443,7 @@ body {
 }
 
 .modal-title {
+  color: var(--text-task-clr);
   text-align: center;
 }
 
@@ -437,7 +451,7 @@ body {
   height: 2rem;
   width: 100%;
   outline: none;
-  border: 1px solid var(--dark-bg);
+  border: 1px solid var(--dark-accent-bg);
   padding-left: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -451,7 +465,7 @@ body {
 
 .modal-submit,
 .modal-cancel {
-  background-color: var(--dark-bg);
+  background-color: var(--dark-accent-bg);
   color: var(--text-header-clr);
   border: none;
   height: 2rem;
@@ -461,16 +475,15 @@ body {
 
 .modal-submit:hover,
 .modal-cancel:hover {
-  color: var(--teal);
-  box-shadow: 0px 0px 5px var(--teal);
+  background-color: var(--accent-clr);
 }
 
 /* TASK MODAL STYLE ------------------------------------------------ */
 
 .task-modal {
   background-color: var(--main-bg-clr);
-  border-top: 4px solid var(--new-task-bg);
-  border-bottom: 4px solid var(--new-task-bg);
+  border-top: 4px solid var(--accent-clr);
+  border-bottom: 4px solid var(--accent-clr);
   border-left: 0;
   border-right: 0;
   padding: 20px;
@@ -484,6 +497,7 @@ body {
 }
 
 .task-modal-title {
+  color: var(--text-task-clr);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -493,11 +507,15 @@ body {
   flex-direction: column;
 }
 
+.task-label {
+  color: var(--text-task-clr);
+}
+
 .task-input {
   height: 2rem;
   width: 100%;
   outline: none;
-  border: 1px solid var(--dark-bg);
+  border: 1px solid var(--dark-accent-bg);
   padding-left: 10px;
   margin-bottom: 20px;
 }
@@ -505,14 +523,14 @@ body {
 .task-textarea {
   height: 4rem;
   outline: none;
-  border: 1px solid var(--dark-bg);
+  border: 1px solid var(--dark-accent-bg);
   padding-left: 10px;
   margin-bottom: 20px;
 }
 
 .task-submit,
 .task-cancel {
-  background-color: var(--dark-bg);
+  background-color: var(--dark-accent-bg);
   color: var(--text-header-clr);
   border: none;
   height: 2rem;
@@ -522,8 +540,7 @@ body {
 
 .task-submit:hover,
 .task-cancel:hover {
-  color: var(--teal);
-  box-shadow: 0px 0px 5px var(--teal);
+  background-color: var(--accent-clr);
 }
 
 /* TASK STYLE ------------------------------------------------ */
@@ -531,14 +548,19 @@ body {
 .task-wrap {
   display: grid;
   grid-template-columns: 1fr 100px 50px 50px;
-  background-color: var(--main-bg-clr);
+  background-color: var(--task-bg-clr);
+  color: var(--text-task-clr);
   padding: 10px 0px 10px 10px;
   margin-bottom: 10px;
   transition: 0.3s;
 }
 
 .task-wrap:hover {
-  background-color: var(--light-teal);
+  background-color: var(--task-hover);
+}
+
+.empty-notice {
+  color: var(--text-task-clr);
 }
 
 .task-edit {

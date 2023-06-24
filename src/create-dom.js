@@ -218,6 +218,7 @@ export const createDOM = {
 
       if (FOLDERS.names[i].tasks.length == 0) {
         const emptyNotice = document.createElement("p");
+        emptyNotice.classList.add("empty-notice");
         emptyNotice.textContent =
           "No tasks here yet, click the plus button to add your first task.";
 
