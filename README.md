@@ -1,6 +1,6 @@
 ![Header](./github-todo-banner.jpg)
 
-# odin-todo
+# To-Do-List
 
 ### Languages and Tools used in this project
 
