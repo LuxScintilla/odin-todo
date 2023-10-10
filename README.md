@@ -12,5 +12,8 @@
 <br />
 
 ### Additional Info
-<p>This project is part of the Javascript Course on The Odin Project. At the time of creation responsive design was not yet taught and focused on, so, for now, this project is desktop only.</p>
-<a href="https://www.theodinproject.com/lessons/node-path-javascript-todo-list">
+<p>
+  This project is part of the Javascript Course on The Odin Project. At the time of creation responsive design was not yet taught and focused on, so, for now, this project is desktop only.
+  <a href="https://www.theodinproject.com/lessons/node-path-javascript-todo-list">Link to the project page on the TOP curriculum website</a>
+</p>
+
